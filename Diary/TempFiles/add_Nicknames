@@ -1,0 +1,5 @@
+INSERT INTO Users_T (Nickname)
+VALUES ('Юра'),
+    ('Юля'),
+    ('Егор'),
+    ('Маша');

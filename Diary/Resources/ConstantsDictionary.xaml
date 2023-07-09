@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="ListView_HeaderName1">Дата</sys:String>
+    <sys:String x:Key="ListView_HeaderName2">Тип события</sys:String>
+    <sys:String x:Key="ListView_HeaderName3">Описание</sys:String>
+    <sys:String x:Key="string1">Все записи пользователя</sys:String> <!--Часть надписи над ListView при выводе всех записей-->
+    <sys:String x:Key="string2">Записи пользователя</sys:String> <!--Часть надписи над ListView при выводе за день-->
+    <sys:String x:Key="string3">Сегодня</sys:String> <!--Надпись на кнопке под календарем-->
+    <sys:String x:Key="ApplicationName">Ежедневник</sys:String> <!--Название приложения-->
+    
+
+</ResourceDictionary>

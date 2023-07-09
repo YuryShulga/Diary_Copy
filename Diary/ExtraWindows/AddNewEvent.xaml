@@ -1,0 +1,44 @@
+﻿<Window x:Class="Diary.ExtraWindows.AddNewEvent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diary.ExtraWindows"
+        mc:Ignorable="d"
+        Title="Новая запись" 
+        MaxHeight="400" MaxWidth="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml"/>
+    </Window.Resources>
+
+    <StackPanel>
+        <WrapPanel>
+            <TextBlock Text="Тип записи" Style="{StaticResource TextBlockStyle}"/>
+            <ComboBox x:Name="ComboBox_EventTypes" Margin="5" IsEditable="True" Style="{StaticResource ComboBoxStyle}"/>    
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock Text="Дата: " Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock x:Name="TextBlock_Date" Style="{StaticResource TextBlockStyle}"/>
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock Text="Комментарий" Style="{StaticResource TextBlockStyle}" />
+            <TextBox x:Name="TextBox_EventComment" Style="{StaticResource TextBoxStyle}" Width="232"/>    
+        </WrapPanel>
+        
+        <WrapPanel HorizontalAlignment="Center" Background="Azure">
+            <Button x:Name="Button_AddNewRecord" 
+                    Style="{StaticResource Button_NewRecordCreate}"
+                    Content="Добавить"
+                    IsDefault="True"
+                    Click="Button_AddNewRecord_Click"/>
+            <Button x:Name="Button_CancelAddingRecord" 
+                    Style="{StaticResource Button_NewUserCancel}"
+                    Content="Отмена"
+                    IsCancel="True"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>
