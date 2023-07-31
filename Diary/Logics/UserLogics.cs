@@ -402,9 +402,9 @@ namespace Diary.Logics
                 result = command.ExecuteNonQuery(); //update data command
 
             }
-            catch //(Exception ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {

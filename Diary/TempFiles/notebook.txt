@@ -1,1 +1,1 @@
-делаю private void MenuItem_ShowAllRecords_Click(object sender, RoutedEventArgs e)ю
+пытаюсь убрать косяк с удалением событий

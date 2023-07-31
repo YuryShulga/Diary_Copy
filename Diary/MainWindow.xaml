@@ -52,33 +52,30 @@
                     x:Name="Button_Today" 
                     Margin="6 0 3 0" 
                     Content="{StaticResource string3}" 
-                    Style="{StaticResource Button_NewUser}"
+                    Style="{StaticResource Button_NewUserCreate}"
                     Click="Button_Today_Click"/>
             </StackPanel>
             <StackPanel Grid.Column="1">
                 <WrapPanel HorizontalAlignment="Left">
                     <TextBlock x:Name="TextBlock_ListViewDescription" Text="" Style="{StaticResource TextBlockStyle}"/>
+                    <Button x:Name="Button_DeleteRecord" 
+                            Content="Удалить запись"  
+                            FontSize="{StaticResource CommonFontSize}"
+                            Padding="5"
+                            Visibility="Hidden"
+                            Click="Button_DeleteRecord_Click">
+                    </Button>
                 </WrapPanel>
                 <ListView 
                     x:Name="ListView_Records"  
                     GridViewColumnHeader.Click="ListView_Records_HeaderClick"
+                    MouseUp="ListView_Records_MouseUp"
                     TabIndex="1"
                     Margin="3 3 6 3"
                     Style="{StaticResource ListView}">
-                    <!--Установка контекстного меню-->
-                    <ListView.Resources>
-                        <ContextMenu x:Key="ItemContextMenu">
-                            <MenuItem x:Name="MenuItem_DeleteRecord" Header="Удалить" Click="MenuItem_DeleteRecord_Click"/>
-                        </ContextMenu>
-                    </ListView.Resources>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListViewItem}">
-                            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <!--Конец установки контекстного меню-->
                     <ListView.View>
                         <GridView>
+                            
                             <GridView.Columns>
                                 <!--<GridViewColumn  Header="  Дата  ">-->
                                 <GridViewColumn  Header="{StaticResource ListView_HeaderName1}">

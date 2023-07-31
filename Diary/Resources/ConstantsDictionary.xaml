@@ -9,6 +9,7 @@
     <sys:String x:Key="string2">Записи пользователя</sys:String> <!--Часть надписи над ListView при выводе за день-->
     <sys:String x:Key="string3">Сегодня</sys:String> <!--Надпись на кнопке под календарем-->
     <sys:String x:Key="ApplicationName">Ежедневник</sys:String> <!--Название приложения-->
-    
+    <sys:Double x:Key="CommonFontSize">16</sys:Double>
+
 
 </ResourceDictionary>

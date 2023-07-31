@@ -75,6 +75,7 @@ namespace Diary
         {
             InitializeComponent();
             WindowInitializeHelper();
+            
         }
 
         /// <summary>
@@ -177,9 +178,10 @@ namespace Diary
             //textbox_test.Text += selectedDate.ToString()+"\n";
             //textbox_test.Text += "---------------------\n";
             UpdateListView(new UsRecViewDateComparer());
-            
-            
-            
+            Button_DeleteRecord.Visibility = Visibility.Collapsed;
+
+
+
         }
 
         //Обработка меню "создать новый аккаунт"
@@ -365,6 +367,7 @@ namespace Diary
 
         private void ListView_Records_HeaderClick(object sender, RoutedEventArgs e)
         {
+            
             var headerClicked = e.OriginalSource as GridViewColumnHeader;
             if (headerClicked?.Content?.ToString() == (string)TryFindResource("ListView_HeaderName1"))
             {
@@ -387,6 +390,8 @@ namespace Diary
 
         private void ListView_Records_HeaderClickHelper()
         {
+
+            
             if (TextBlock_ListViewDescription.Text == $"{(string)TryFindResource("string1")} \"{CurrentUser?.Nickname_F}\"")
             {
                 if (SortFlag == ListView_SortedBy.Date)
@@ -431,19 +436,7 @@ namespace Diary
             calendar.Focus();
         }
 
-        private void MenuItem_DeleteRecord_Click(object sender, RoutedEventArgs e)
-        {
-            var result = UserLogics.RemoveRecord(((UserRecordView)ListView_Records.Items[ListView_Records.SelectedIndex]).RecordId);
-            if (result)
-            {
-                ListView_Records_HeaderClickHelper();
-            }
-            else
-            {
-                ErrorDbShow();
-            }
-        }
-
+        
         private void MenuItem_About_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"приложение {(string)TryFindResource("ApplicationName")}\n\n" +
@@ -453,5 +446,34 @@ namespace Diary
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
         }
+
+        private void Button_DeleteRecord_Click(object sender, RoutedEventArgs e)
+        {
+            var result = UserLogics.RemoveRecord(((UserRecordView)ListView_Records.Items[ListView_Records.SelectedIndex]).RecordId);
+            if (result)
+            {
+                ListView_Records_HeaderClickHelper();
+                Button_DeleteRecord.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ErrorDbShow();
+            }
+        }
+
+        
+
+        private void ListView_Records_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (ListView_Records.SelectedIndex > -1)
+            {
+                Button_DeleteRecord.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Button_DeleteRecord.Visibility = Visibility.Collapsed;
+            }
+        }
+
     }
 }
